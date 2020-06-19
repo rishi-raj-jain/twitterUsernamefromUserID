@@ -1,6 +1,6 @@
 # twitterUsernamefromUserID
-Automation to the extract the username from given twitter user id's. 
-<img src="https://www.selenium.dev/images/selenium_logo_large.png" height="70">
+Automation to the extract the username from given twitter user id's. <br>
+<img src="https://www.selenium.dev/images/selenium_logo_large.png" style="height: 70px; width: auto; max-width: 100%; height: auto;"> <br>
 
 ### Contributing
 First, read the [contribution guidelines](CONTRIBUTING.md). Ensure you understand the code.
