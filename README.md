@@ -3,6 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/haccer/tweep.svg)](https://github.com/haccer/tweep/blob/master/LICENSE)
 [![Selenium](https://img.shields.io/badge/-selenium-green)](https://www.selenium.dev/)
 [![Python](https://img.shields.io/badge/-python-yellow)](https://www.python.org/)
+[![Chrome](https://img.shields.io/badge/-chrome-blue)](https://www.google.com/chrome/)
 
 >No authentication. No API. No limits.
 
