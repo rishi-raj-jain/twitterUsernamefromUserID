@@ -25,7 +25,7 @@ Some of the benefits of using twitterUsernamefromUserID vs Twitter API:
 
 **Git:**
 ```bash
-- git clone https://github.com/digitalPlayer1125/twitterUsernamefromUserID/edit/master/README.md
+- git clone https://github.com/digitalPlayer1125/twitterUsernamefromUserID
 - pip3 install . -r requirements.txt
 - Place all the userid seperated by newline, in listIDS.txt file
 - python3 getHandles.py
