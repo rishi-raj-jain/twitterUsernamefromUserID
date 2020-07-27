@@ -13,8 +13,7 @@ def getHandles(user_IDs = None):
     # Start Chrome headless so no window popping up
     ChromeOptions.add_argument("--headless")
     # Changed chrome_options to options due to deprecation
-    # MUST be full path to Chromedriver NOT relative. Also must NOT have exe extension here
-    browser = webdriver.Chrome('./chromedriver', options=ChromeOptions)
+    browser = webdriver.Chrome('./chromedrivers/chromedriver_Mac64/chromedriver', options=ChromeOptions)
     # This dictionary will be populated then returned
     DictOfUsernames = {}
     # iterate over array of user IDs with i as ID
