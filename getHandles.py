@@ -10,11 +10,11 @@ from selenium.common.exceptions import TimeoutException
 
 def getHandles(user_IDs = None):
     ChromeOptions = webdriver.ChromeOptions()
-    # Start headless so no window popping up
+    # Start Chrome headless so no window popping up
     ChromeOptions.add_argument("--headless")
     # Changed chrome_options to options due to deprecation
     # MUST be full path to Chromedriver NOT relative. Also must NOT have exe extension here
-    browser = webdriver.Chrome('/Users/davidvannen/Desktop/pythonProjects/twitterUsernamefromUserID/chromedriver', options=ChromeOptions)
+    browser = webdriver.Chrome('./chromedriver', options=ChromeOptions)
     # This dictionary will be populated then returned
     DictOfUsernames = {}
     # iterate over array of user IDs with i as ID
@@ -38,7 +38,3 @@ def getHandles(user_IDs = None):
             print ("Loading took too much time!")
 
     return(DictOfUsernames)
-
-
-returnedDict = getHandles(["80304031","25073877"])
-print(returnedDict)
