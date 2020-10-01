@@ -24,12 +24,14 @@ def getHandles(user_IDs = None):
     # iterate over list of user IDs with i as ID
     for i in user_IDs:
         browser.get("https://twitter.com/i/user/"+i)
+        # Delay for WebDriverwait. This is maxumum seconds to wait before timeout
         delay = 15
         try:
             myElem = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.ID, 'react-root')))
+            # Page is *actually* ready and we can obtain the username from the URL
             print ("Page is ready for -> ", i)
-            # Sleep for three seconds for browser to catch up
-            time.sleep(3)
+            # Sleep for three seconds for browser to catch up - NO NEED, as page is ready
+            # time.sleep(3)
             print(browser.current_url)
             # strip the username from the end of the URL
             endingslash= (str(browser.current_url).split('/'))[-1]
@@ -46,11 +48,11 @@ def getHandles(user_IDs = None):
             # NOW CLOSE otherwise keeps opening windows and eventually out of memory
             try:
                 browser.close
-                print("Closed instance")
+                print("Closed browser instance")
             except:
-                print("Couldn't close this instance")
+                print("Couldn't close this browser instance")
         except TimeoutException:
-            print ("Loading took too much time!")
+            print ("Loading this user's page took too much time!")
 
     return(DictOfUsernames)
 
