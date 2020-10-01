@@ -48,7 +48,8 @@ def getHandles(user_IDs = None):
             # NOW CLOSE otherwise keeps opening windows and eventually out of memory
             try:
                 browser.close
-                print("Closed browser instance")
+                # Removing as too verbose
+                # print("Closed browser instance")
             except:
                 print("Couldn't close this browser instance")
         except TimeoutException:
