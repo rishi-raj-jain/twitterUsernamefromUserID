@@ -43,7 +43,7 @@ def getHandles(user_IDs = None):
             if not endingslash==i:
                 DictOfUsernames[i] = endingslash
             else:
-                print("Account ", i, "may be deactivated. No username retrieved")
+                print(f"Account {i} may be deactivated. No username retrieved")
                 DictOfUsernames[i] = "No_username_retrieved"
 
             # <Deprecated? This threw an error, the line below doesn't.> print(browser.getPageSource())
@@ -57,8 +57,8 @@ def getHandles(user_IDs = None):
             except:
                 print("Couldn't close this browser instance")
         except TimeoutException:
-            print(f"Loading the page for {i} took too much time!")
+            print(f"Trying to Load the page for {i} took too much time!")
             DictOfUsernames[i] = "Timeout"
-
+            time.sleep(2)
     return(DictOfUsernames)
 
