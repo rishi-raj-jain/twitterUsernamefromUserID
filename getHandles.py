@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
 import json
+# Time and random for random delay
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -27,11 +29,13 @@ def getHandles(user_IDs = None):
         # Delay for WebDriverwait. This is maxumum seconds to wait before timeout
         delay = 15
         try:
-            myElem = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.ID, 'react-root')))
-            # Page is *actually* ready and we can obtain the username from the URL
+            # Sleep for random amount so this doesn't look like suspicious activity to Twitter
+            time.sleep(random.randint(0, 3))
+            # Lambda function here as has to be callable. checks if page redirect has happened.
+            # More stable than waiting for page element as we're scraping directly from the URL
+            myElem = WebDriverWait(browser, delay).until(lambda urlCheck: browser.current_url != f'https://twitter.com/i/user/{i}')
+            # Deprecated: EC.presence_of_element_located((By.ID, 'react-root')))
             print ("Page is ready for -> ", i)
-            # Sleep for three seconds for browser to catch up - NO NEED, as page is ready
-            # time.sleep(3)
             print(browser.current_url)
             # strip the username from the end of the URL
             endingslash= (str(browser.current_url).split('/'))[-1]
@@ -39,8 +43,8 @@ def getHandles(user_IDs = None):
             if not endingslash==i:
                 DictOfUsernames[i] = endingslash
             else:
-                print("Account ", i, " Is deactivated. No username retrieved")
-                DictOfUsernames[i] = "Dead_Account"
+                print("Account ", i, "may be deactivated. No username retrieved")
+                DictOfUsernames[i] = "No_username_retrieved"
 
             # <Deprecated? This threw an error, the line below doesn't.> print(browser.getPageSource())
             # print(browser.page_source)
@@ -53,7 +57,8 @@ def getHandles(user_IDs = None):
             except:
                 print("Couldn't close this browser instance")
         except TimeoutException:
-            print ("Loading this user's page took too much time!")
+            print(f"Loading the page for {i} took too much time!")
+            DictOfUsernames[i] = "Timeout"
 
     return(DictOfUsernames)
 
