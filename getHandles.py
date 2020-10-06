@@ -25,6 +25,8 @@ def getHandles(user_IDs = None):
     DictOfUsernames = {}
     # iterate over list of user IDs with i as ID
     for i in user_IDs:
+        print("\n")
+        print(f"Attempting to load Twitter page for user {i}")
         browser.get("https://twitter.com/i/user/"+i)
         # Delay for WebDriverwait. This is maxumum seconds to wait before timeout
         delay = 15
@@ -35,13 +37,13 @@ def getHandles(user_IDs = None):
             # More stable than waiting for page element as we're scraping directly from the URL
             myElem = WebDriverWait(browser, delay).until(lambda urlCheck: browser.current_url != f'https://twitter.com/i/user/{i}')
             # Deprecated: EC.presence_of_element_located((By.ID, 'react-root')))
-            print ("Page is ready for -> ", i)
-            print(browser.current_url)
+            print(f"Page is ready for user {i}")
             # strip the username from the end of the URL
             endingslash= (str(browser.current_url).split('/'))[-1]
             # Catches cases where username doesn't form part of URL
             if not endingslash==i:
                 DictOfUsernames[i] = endingslash
+                print(f"Username for {i} is {endingslash}")
             else:
                 print(f"Account {i} may be deactivated. No username retrieved")
                 DictOfUsernames[i] = "No_username_retrieved"
@@ -58,6 +60,7 @@ def getHandles(user_IDs = None):
                 print("Couldn't close this browser instance")
         except TimeoutException:
             print(f"Trying to Load the page for {i} took too much time!")
+            print('Used "Timeout" as name')
             DictOfUsernames[i] = "Timeout"
             time.sleep(2)
     return(DictOfUsernames)
