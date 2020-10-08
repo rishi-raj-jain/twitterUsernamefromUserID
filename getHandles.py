@@ -47,21 +47,22 @@ def getHandles(user_IDs = None):
             else:
                 print(f"Account {i} may be deactivated. No username retrieved")
                 DictOfUsernames[i] = "No_username_retrieved"
-
-            # <Deprecated? This threw an error, the line below doesn't.> print(browser.getPageSource())
-            # print(browser.page_source)
-
             # NOW CLOSE otherwise keeps opening windows and eventually out of memory
-            try:
-                browser.close
-                # Removing as too verbose
-                # print("Closed browser instance")
-            except:
-                print("Couldn't close this browser instance")
+            _closeBrowserWindow(browser)
         except TimeoutException:
             print(f"Trying to Load the page for {i} took too much time!")
             print('Used "Timeout" as name')
             DictOfUsernames[i] = "Timeout"
             time.sleep(2)
+            # NOW CLOSE otherwise keeps opening windows and eventually out of memory
+            _closeBrowserWindow(browser)
+    # Finally, totally kill browser so the driver isn't lurking in memory
+    browser.quit()
     return(DictOfUsernames)
 
+def _closeBrowserWindow(browser):
+    try:
+        browser.close
+        print("closed headless browser window")
+    except:
+        print("Couldn't close this headless browser window")
