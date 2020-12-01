@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.vscode/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+wheels/
+twitterUsernameviaUserID.egg-info/
