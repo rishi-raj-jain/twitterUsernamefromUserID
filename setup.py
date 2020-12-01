@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import io, os
 
 # Package meta-data.
@@ -14,7 +14,7 @@ VERSION= None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'selenium', 'webdriver_manager'
+    'selenium', 'webdriver_manager', NAME
 ]
 
 here= os.path.abspath(os.path.dirname(__file__))
@@ -40,9 +40,10 @@ setup(
     author_email= EMAIL,
     python_requires= REQUIRES_PYTHON,
     url= URL,
+    packages= find_packages(include=[NAME+'*']),
     install_requires= REQUIRED,
-    license='MIT',
-    classifiers=[
+    license= 'MIT',
+    classifiers= [
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

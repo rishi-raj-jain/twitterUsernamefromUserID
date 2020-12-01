@@ -17,16 +17,21 @@ Some of the benefits of using twitterUsernamefromUserID vs Twitter API:
 - **No rate limitations**.
 
 ## Requirements
-- Python 3.6;
+- Python >= 3.6
 - Selenium
-- Google Chrome
+- WebDriver Manager
 
 ## Installing
 
-**Git:**
+**Pip:**
 ```bash
-- git clone https://github.com/digitalPlayer1125/twitterUsernamefromUserID
-- pip3 install . -r requirements.txt
-- Place all the userid seperated by newline, in listIDS.txt file
-- python3 getHandles.py
+- pip3 install twitterUsernameviaUserID
+- Voila!
+```
+
+**Example:**
+```
+    from twitterUsernameviaUserID import getHandles as gH
+    # A dictionary with mapped user ids to their usernames
+    temp= gH.getHandles([<list of user ids>], <delay time between request>)
 ```
