@@ -1,4 +1,4 @@
-from twitterUsernamefromUserID import getHandles as twee
+from twitterUsernameviaUserID import getHandles as twee
 '''
 Test.py - Testing TWINT to make sure everything works.
 '''
