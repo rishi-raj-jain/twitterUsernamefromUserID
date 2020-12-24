@@ -35,8 +35,8 @@ def get_driver():
 
 def getUsername(ids, browser, delayTime = 5):
     # iterate over list of user IDs with i as ID
+    localDictUserID = dict()
     for i in ids:
-        localDictUserID = dict()
         print("\n")
         print(f"Attempting to load Twitter page for user {i}")
         browser.get("https://twitter.com/i/user/"+i)
@@ -68,9 +68,9 @@ def getUsername(ids, browser, delayTime = 5):
             # NOW CLOSE otherwise keeps opening windows and eventually out of memory
             _closeBrowserWindow(browser)
             localDictUserID[i] = "_Timeout"
-        # Finally after parsing all user IDs, totally kill browser so the driver isn't lurking in memory
-        browser.quit()
-        return localDictUserID
+    # Finally after parsing all user IDs, totally kill browser so the driver isn't lurking in memory
+    browser.quit()
+    return localDictUserID
 
 def getHandles(user_IDs= None):
     # This dictionary will be populated if user IDs in correct format, then returned. Otherwise returned empty.
