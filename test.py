@@ -1,11 +1,17 @@
 from twitterUsernameviaUserID import getHandles as twee
-'''
-Test.py - Testing TWINT to make sure everything works.
-'''
 
-def sample():
-    temp= twee.getHandles(['1008016646458335234'])
-    return temp['1008016646458335234']=='rishi_raj_jain_'
+"""
+Test.py - Testing twitterUsernameviaUserID to make sure everything works.
+"""
+
+
+def sample(
+    testCase=["1008016646458335234"],
+    condition=["1008016646458335234", "rishi_raj_jain_"],
+):
+    temp = twee.getHandles(testCase)
+    return temp[condition[0]] == condition[1]
+
 
 def main():
     print("[+] Beginning testing")
@@ -15,5 +21,6 @@ def main():
     else:
         print("\n[-] Testing unsuccessfull :/")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

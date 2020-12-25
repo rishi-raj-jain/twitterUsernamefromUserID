@@ -7,10 +7,10 @@
 
 >No authentication. No API. No limits.
 
-**twitterUsernamefromUserID** is an advanced Twitter scraping tool written in Python and Selenium that allows for scraping tweet usernames from the twitter id's, **without** using Twitter's API.
+**twitterUsernameviaUserID** is an advanced Twitter scraping tool written in Python and Selenium that allows for scraping tweet usernames from the twitter id's, **without** using Twitter's API.
 
 ## tl;dr Benefits
-Some of the benefits of using twitterUsernamefromUserID vs Twitter API:
+Some of the benefits of using twitterUsernameviaUserID vs Twitter API:
 - Can fetch __all__ tweet usernames from their id's (Twitter API limits to last 3200 Tweets only);
 - Fast initial setup;
 - Can be used anonymously and without Twitter sign up;
