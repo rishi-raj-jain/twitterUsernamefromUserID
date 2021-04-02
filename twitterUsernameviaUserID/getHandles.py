@@ -31,6 +31,8 @@ class GetThreadValue(threading.Thread):
 
 def get_driver():
     ChromeOptions = webdriver.ChromeOptions()
+    # Basic user agent ensures headless mode works. Chrome version number doesn't need to be exact
+    ChromeOptions.add_argument("user-agent=Chrome/89")
     # Start Chrome headless so no window popping up
     ChromeOptions.add_argument("--headless")
     # Changed chrome_options to options due to deprecation
