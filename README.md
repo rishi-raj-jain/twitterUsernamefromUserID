@@ -33,5 +33,5 @@ Some of the benefits of using twitterUsernameviaUserID vs Twitter API:
 ```
     from twitterUsernameviaUserID import getHandles as gH
     # A dictionary with mapped user ids to their usernames
-    temp= gH.getHandles([<list of user ids (in string)>], <delay time between request>)
+    temp= gH.getHandles([<list of user ids (in string)>], <delay in seconds>)
 ```
